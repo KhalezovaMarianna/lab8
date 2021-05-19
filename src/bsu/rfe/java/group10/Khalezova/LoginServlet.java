@@ -120,7 +120,9 @@ public class LoginServlet extends ChatServlet {
         // Извлечь из списка объект, связанный с этим именем
         ChatUser aUser = activeUsers.get(name);
         if (aUser==null) {
-
+            // Если оно свободно, то добавить
+// нового пользователя в список активных
+            aUser = new ChatUser(name, Calendar.getInstance().getTimeInMillis(), sessionId);
             // Так как одновременно выполняются запросы
 // от множества пользователей
             // то необходима синхронизация на ресурсе
