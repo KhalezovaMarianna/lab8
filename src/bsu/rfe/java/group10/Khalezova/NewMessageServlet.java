@@ -29,7 +29,6 @@ public class NewMessageServlet extends ChatServlet {
                 messages.add(new ChatMessage(message, author, Calendar.getInstance().getTimeInMillis()));
             }
         }
-
     }
 }
 
