@@ -112,7 +112,13 @@ public class LoginServlet extends ChatServlet {
         }
     }
 
-
+    // Возвращает текстовое описание возникшей ошибки или null
+    String processLogonAttempt(String name, HttpServletRequest request,
+                               HttpServletResponse response) throws IOException {
+        // Определить идентификатор Java-сессии пользователя
+        String sessionId = request.getSession().getId();
+        // Извлечь из списка объект, связанный с этим именем
+        ChatUser aUser = activeUsers.get(name);
         if (aUser==null) {
             // Если оно свободно, то добавить
 // нового пользователя в список активных
